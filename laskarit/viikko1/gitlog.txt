@@ -1,0 +1,114 @@
+C:\Users\Asus\Desktop\ot_viikko1\tiedostoja>git log --stat | cat
+commit 4fbc03af18e80d6a00c6c6e793d1b07ff35aaed1
+Author: pants64DS <pants64DS@users.noreply.github.com>
+Date:   Tue Nov 8 08:58:28 2022 +0200
+
+    muuta tiedostoja
+
+ tiedostoja/file2.txt                 | 0
+ tiedostoja/{file1.txt => file22.txt} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 091868dc81eac65e5fddf8052901b40ed2e3d0f7
+Author: pants64DS <pants64DS@users.noreply.github.com>
+Date:   Tue Nov 8 08:53:33 2022 +0200
+
+    lisää "tiedostoja"
+
+ tiedostoja/file1.txt | 0
+ tiedostoja/file2.txt | 0
+ tiedostoja/file3.txt | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 62dd71df798f59259ebce6d1dcaaef6edf9bf85a
+Author: pants64DS <pants64DS@users.noreply.github.com>
+Date:   Tue Nov 8 08:43:12 2022 +0200
+
+    muuta ekaa ja kolmatta
+
+ eka.txt    | 6 +++++-
+ kolmas.txt | 4 +++-
+ 2 files changed, 8 insertions(+), 2 deletions(-)
+
+commit 21c53d701c38dca1d7b4f956fb8069ba5582bccc
+Author: pants64DS <pants64DS@users.noreply.github.com>
+Date:   Tue Nov 8 08:35:40 2022 +0200
+
+    nimeä tiedosto.txt uudelleen
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit cd57e35563fd7d2586851918d4328b785b3d37a4
+Author: pants64DS <pants64DS@users.noreply.github.com>
+Date:   Tue Nov 8 08:34:00 2022 +0200
+
+    poista toinen.txt
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 192d15b6acefe9c5ea8db0ad280efe0b04add567
+Author: pants64DS <pants64DS@users.noreply.github.com>
+Date:   Tue Nov 8 08:30:20 2022 +0200
+
+    poista osa ja lisää vähän
+
+ tiedosto.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit dd4621c5b8b536b8d046a7ccf220dd8a222c1d7d
+Author: pants64DS <pants64DS@users.noreply.github.com>
+Date:   Tue Nov 8 08:23:51 2022 +0200
+
+    lisää tiedostoon paljon tekstiä
+
+ tiedosto.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 9d5decb48f9fd18c1da077f923e1dfa6665a8b0b
+Author: pants64DS <pants64DS@users.noreply.github.com>
+Date:   Tue Nov 8 08:07:37 2022 +0200
+
+    lisää kansio "stuff"
+
+ stuff/jokin.bin | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 1ea2084df7a17559599d941e2c4639aab742d8f8
+Author: pants64DS <pants64DS@users.noreply.github.com>
+Date:   Tue Nov 8 08:06:01 2022 +0200
+
+    muuta toista ja kolmatta
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit b1fe04063efb69dad1255dc61deb78b819544c76
+Author: pants64DS <pants64DS@users.noreply.github.com>
+Date:   Tue Nov 8 08:04:55 2022 +0200
+
+    lisää kolmas.txt
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit e929fd7352fb0c589f0c61e35787dd453e8699ea
+Author: pants64DS <pants64DS@users.noreply.github.com>
+Date:   Tue Nov 8 07:57:26 2022 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit bb7f65d5bae340d860085c71d9b9edc5a2872b60
+Author: pants64DS <pants64DS@users.noreply.github.com>
+Date:   Tue Nov 8 07:54:46 2022 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)

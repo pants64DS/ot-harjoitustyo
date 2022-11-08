@@ -112,3 +112,4 @@ Date:   Tue Nov 8 07:54:46 2022 +0200
 
  tiedosto.txt | 0
  1 file changed, 0 insertions(+), 0 deletions(-)
+ Tämä rivi on lisätty tehtävää 17 varten

@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "ot-harjoitustyo"
+version = "0.1.0"
+description = ""
+authors = ["pants64DS <pants64DS@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "ot_harjoitustyo"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

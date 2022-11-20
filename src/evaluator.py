@@ -53,14 +53,16 @@ class Evaluator:
 			return self._eval_complete(expr[1:-1])
 
 		if expr[0] in _unary_operators:
-			return _unary_operators[expr[0]](self._eval_unary_expr(expr[1:]))
+			operand = self._eval_unary_expr(expr[1:])
+
+			return _unary_operators[expr[0]](operand)
 
 		return self.literal_parser(expr)
 
-	# "pos" is assumed to be the index of the rightmost top-level binary
-	# operator in the expression that's in the given precedence group.
-	# Therefore the sub-expression on the right-hand side contains
-	# top-level binary operators only from lower precedence groups.
+	# "pos" is assumed to be the index of the rightmost top-level
+	# binary operator in the expression with the given precedence.
+	# Therefore the sub-expression on its right side only contains
+	# top-level binary operators with lower precedence.
 	def _eval_binary_expr(self, expr, pos, precedence):
 		lhs = self._eval_complete(expr[:pos], precedence)
 		rhs = self._eval_complete(expr[pos + 1:], precedence - 1)

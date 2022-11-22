@@ -1,6 +1,5 @@
 import tkinter
-import string
-from evaluator import Evaluator
+from calculation.evaluator import Evaluator
 
 class Row:
 	def __init__(self, root, parent_table, row_id):
@@ -91,6 +90,9 @@ class Row:
 		for i in range(new_id + 1, len(self._parent_table)):
 			self._parent_table[i].set_id(i)
 
+	def _on_focus_out(self, event):
+		self._expr_field.select_range(0, 0)
+
 	def _on_tab(self, event):
 		self.move_focus(1, wrap_around=True)
 
@@ -112,6 +114,3 @@ class Row:
 
 	def _on_ctrl_end(self, event):
 		self.move_focus(-1, relative=False, wrap_around=True)
-
-	def _on_focus_out(self, event):
-		self._expr_field.select_range(0, 0)

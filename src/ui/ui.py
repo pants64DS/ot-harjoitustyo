@@ -1,5 +1,5 @@
 import tkinter
-from row import Row
+from ui.row import Row
 
 class UI:
 	def __init__(self, root):

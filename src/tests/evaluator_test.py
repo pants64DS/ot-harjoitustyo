@@ -1,6 +1,6 @@
 import unittest
 import itertools
-from evaluator import Evaluator
+from calculation.evaluator import Evaluator
 
 def _generate_expressions(length, digits, unary_ops, binary_ops):
 	if length <= 0: return set()

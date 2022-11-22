@@ -16,7 +16,7 @@
         * Jos lauseke ei ole kelvollinen, näytetäänkin teksti "Invalid".
         * Jos lausekkeessa tapahtuu nollalla jako, näytetäänkin teksti "Undefined". Tämä todennäköisesti muuttuu jatkossa, koska liukuluvuilla nollalla jako on määritelty.
     * Kun tietyn rivin tekstikenttä on aktiivinen ja käyttäjä painaa enteriä, sen alle ilmestyy uusi vastaavanlainen rivi. Kursori siirtyy heti uudelle riville.
-    * Rivejä voidaan valita hiiren lisäksi näppäimistön avulla:
+    * Kursoria voi siirtää hiiren lisäksi näppäimistön avulla:
         * Alanuolinäppäin siirtää kursoria yhden rivin alammas, ellei se ole viimeisellä rivillä.
         * Ylänuolinäppäin siirtää kursoria yhden rivin ylemmäs, ellei se ole ensimmäisellä rivillä.
         * Tab siirtää kursoria yhden rivin alemmas tai ensimmäiselle riville, jos se on viimeisellä rivillä.

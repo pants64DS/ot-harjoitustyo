@@ -2,14 +2,14 @@ from tkinter import Tk
 from ui.ui import UI
 
 def main():
-	window = Tk()
-	window.title("Ohjelmoijan laskin")
-	window.geometry("800x500")
+    window = Tk()
+    window.title("Ohjelmoijan laskin")
+    window.geometry("800x500")
 
-	ui = UI(window)
-	ui.start()
+    ui = UI(window)
+    ui.start()
 
-	window.mainloop()
+    window.mainloop()
 
 if __name__ == "__main__":
-	main()
+    main()

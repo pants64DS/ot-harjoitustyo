@@ -4,7 +4,7 @@ from ui.ui import UI
 def main():
 	window = Tk()
 	window.title("Ohjelmoijan laskin")
-	window.geometry("500x300")
+	window.geometry("800x500")
 
 	ui = UI(window)
 	ui.start()

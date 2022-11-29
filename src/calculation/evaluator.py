@@ -84,14 +84,18 @@ class Evaluator:
 
 	def evaluate(self, expr):
 		expr = expr.replace(' ', '')
+
 		if not expr:
-			return str()
+			return ''
 
 		expr = expr.lower()
 		expr = _complete_parentheses(expr)
 
+		return str(self._eval_complete(expr))
+
+	def evaluate_to_string(self, expr):
 		try:
-			res = str(self._eval_complete(expr))
+			res = str(self.evaluate(expr))
 		except ZeroDivisionError:
 			return 'undef'
 		except:

@@ -23,11 +23,8 @@ class Column:
 	def get_evaluator(self):
 		return Evaluator(_modes[self._mode.get()])
 
-	def calculate_result(self, expr):
-		return self.get_evaluator().evaluate(expr)
-
 	def _on_mode_changed(self, name, index, mode):
 		for row in self._table.get_rows():
-			res = self.get_evaluator().evaluate(row.get_expr())
+			res = self.get_evaluator().evaluate_to_string(row.get_expr())
 
 			row.set_result_at(self._id, res)

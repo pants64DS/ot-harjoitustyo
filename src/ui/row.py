@@ -9,12 +9,10 @@ class Row:
 		self._init_expr_field(root)
 
 		self._result_labels = []
+		self._id = row_id
 
-		for i in range(table.get_width()):
-			new_label = tkinter.Label(master=root, font=('Consolas', 15))
-			new_label.grid(column=i + 1, padx=10, pady=5, sticky=tkinter.W)
-
-			self._result_labels.append(new_label)
+		for column_id in range(table.get_width()):
+			self.add_label(root, column_id)
 
 		self.set_id(row_id)
 
@@ -32,6 +30,12 @@ class Row:
 		self._expr_field.bind('<Down>',         self._on_down)
 		self._expr_field.bind('<Control-Home>', self._on_ctrl_home)
 		self._expr_field.bind('<Control-End>',  self._on_ctrl_end)
+
+	def add_label(self, root, column_id):
+		new_label = tkinter.Label(master=root, font=('Consolas', 15))
+		new_label.grid(row=self._id+1, column=column_id+1, padx=10, pady=5, sticky=tkinter.W)
+
+		self._result_labels.append(new_label)
 
 	def get_expr(self):
 		return self._expr.get()
@@ -69,7 +73,7 @@ class Row:
 		expr = self.get_expr()
 
 		for column, label in zip(self._table.get_columns(), self._result_labels):
-			label['text'] = column.get_evaluator().evaluate(expr)
+			label['text'] = column.get_evaluator().evaluate_to_string(expr)
 
 	def _on_enter(self, event):
 		self._table.add_row(self._id + 1) # Adds a row below this one

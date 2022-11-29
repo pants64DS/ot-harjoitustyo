@@ -38,3 +38,15 @@ class Table:
 
 	def get_columns(self):
 		return self._columns
+
+	def add_column(self):
+		new_column_id = len(self._columns)
+		new_column = Column(self._root, self, new_column_id)
+
+		self._columns.append(new_column)
+
+		for row in self._rows:
+			res = new_column.get_evaluator().evaluate_to_string(row.get_expr())
+
+			row.add_label(self._root, new_column_id)
+			row.set_result_at(new_column_id, res)

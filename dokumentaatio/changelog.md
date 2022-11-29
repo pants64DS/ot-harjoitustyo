@@ -12,3 +12,9 @@
     * Käyttäjä voi kirjoittaa kenttään lausekkeen, jolloin sen arvo lasketaan käyttäen `Evaluator`-luokkaa ja näytetään käyttäjälle
     * Käyttäjä voi lisätä uusia rivejä painamalla enteriä
     * Kursoria voi siirtää riviltä toiselle hiiren tai eri näppäinten avulla
+
+## Viikko 4
+
+* Jaettu käyttöliittymän taulukon koodi `Table`- `Row`- ja `Column`- luokkiin
+* Sarakkeita voi lisätä painamalla Ctrl+N
+* Jokaiselle sarakkeelle voi asettaa lukujärjestälmäksi 32- tai 64-bittiset liukuluvut

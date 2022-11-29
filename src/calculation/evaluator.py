@@ -91,7 +91,7 @@ class Evaluator:
 		expr = expr.lower()
 		expr = _complete_parentheses(expr)
 
-		return str(self._eval_complete(expr))
+		return self._eval_complete(expr)
 
 	def evaluate_to_string(self, expr):
 		try:

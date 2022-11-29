@@ -8,3 +8,4 @@
 | 20.11  | 4    | testit aritmeettisten lausekkeiden laskennalle |
 | 21.11  | 8    | graafisen käyttöliittymän toteutus |
 | 22.11  | 3    | graafisen käyttöliittymän toteutus |
+| 29.11  | 8    | käyttöliittymän sarakkeet ja niiden asetukset |

@@ -3,6 +3,7 @@ Sovelluksesta tulee laskin, jolla voidaan laskea aritmeettisia lausekkeita tieto
 
 ## Dokumentaatio
 * [Vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
+* [Arkkitehtuurikuvaus](dokumentaatio/arkkitehtuuri.md)
 * [Työaikakirjanpito](dokumentaatio/tuntikirjanpito.md)
 * [Changelog](dokumentaatio/changelog.md)
 

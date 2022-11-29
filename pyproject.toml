@@ -9,6 +9,7 @@ packages = [{include = "ot_harjoitustyo"}]
 [tool.poetry.dependencies]
 python = "^3.8"
 invoke = "^1.7.3"
+numpy = "^1.23.5"
 
 
 [tool.poetry.group.dev.dependencies]

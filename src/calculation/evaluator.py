@@ -84,7 +84,20 @@ class Evaluator:
 
 	def evaluate(self, expr):
 		expr = expr.replace(' ', '')
+		if not expr:
+			return str()
+
 		expr = expr.lower()
 		expr = _complete_parentheses(expr)
 
-		return self._eval_complete(expr)
+		try:
+			res = str(self._eval_complete(expr))
+		except ZeroDivisionError:
+			return 'undef'
+		except:
+			return 'invalid'
+
+		if res.endswith('.0'):
+			res = res[:-2]
+
+		return res

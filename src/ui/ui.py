@@ -1,12 +1,11 @@
 import tkinter
-from ui.row import Row
+import numpy
+from ui.table import Table
 
 class UI:
 	def __init__(self, root):
 		self._root = root
-		self._rows = []
+		self._table = Table(root)
 
 	def start(self):
-		first_row = Row(self._root, self._rows, 0)
-		first_row.focus()
-		self._rows.append(first_row)
+		numpy.seterr('ignore') # inf and nan are valid results

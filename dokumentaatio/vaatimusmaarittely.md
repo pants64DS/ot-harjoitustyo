@@ -7,10 +7,13 @@ Sovelluksesta tulee laskin, jonka tarkoitus on auttaa ohjelmoijaa:
 * Löytämään riittävän tarkka lukujärjestelmä halutun tarkkuuden saavuttamiseksi
 
 ## Käyttöliittymä ja ydintoiminnallisuudet
+### :heavy_check_mark: Kaikki ydintoiminnallisuudet on toteutettu sarakkeiden poistoa lukuun ottamatta
 
 Käyttäjän pitää siis pystyä määrittelemään eri lausekkeita, joita hän haluaa laskea, sekä eri lukujärjestelmiä, joilla laskenta tapahtuu. Sovelluksen käyttöliittymässä nämä vastaavat eräänlaisen taulukon rivejä ja sarakkeita, joita käyttäjä voi lisätä ja poistaa mielensä mukaan.
 
 Ennen taulukon jokaista riviä on käyttäjän kirjoittama lauseke, ja sen jokainen solu näyttää kyseisen lausekkeen tuloksen tietyillä asetuksilla, jotka käyttäjä voi määritellä itse jokaiselle sarakkeelle erikseen. Sarakkeen asetuksiin kuuluu ainakin sen käyttämä lukujärjestelmä, mikä on perusversiossa joko 32- tai 64-bittiset liukuluvut. Perusversiossa laskin tukee ainakin yhteen-, vähennys-, kerto- sekä jakolaskua, joiden järjestystä voidaan muuttaa sulkeiden avulla.
+
+
 
 ## Jatkokehitysideoita
 

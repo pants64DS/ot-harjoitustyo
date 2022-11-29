@@ -101,3 +101,21 @@ class TestEvaluator(unittest.TestCase):
 
             for expr in expressions:
                 self.assertEqual(self.e.evaluate(expr), eval(expr))
+
+    def test_formatting(self):
+        self.assertEqual(self.e.evaluate_to_string('0.0'), '0')
+        self.assertEqual(self.e.evaluate_to_string('1.0'), '1')
+        self.assertEqual(self.e.evaluate_to_string('+1.5'), '1.5')
+        self.assertEqual(self.e.evaluate_to_string('-1.5'), '-1.5')
+
+    def test_undefined_result(self):
+        self.assertEqual(self.e.evaluate_to_string('1/0'), 'undef')
+        self.assertEqual(self.e.evaluate_to_string('0/0'), 'undef')
+
+    def test_invalid_expr(self):
+        self.assertEqual(self.e.evaluate_to_string('1/'), 'invalid')
+        self.assertEqual(self.e.evaluate_to_string(')('), 'invalid')
+        self.assertEqual(self.e.evaluate_to_string('#'),  'invalid')
+
+    def test_empty_expr(self):
+        self.assertEqual(self.e.evaluate_to_string(''), '')

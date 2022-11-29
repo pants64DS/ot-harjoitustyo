@@ -22,3 +22,8 @@ poetry run invoke test
 ```
 poetry run invoke coverage-report
 ```
+
+### Laatutarkistus:
+```
+poetry run invoke lint
+```

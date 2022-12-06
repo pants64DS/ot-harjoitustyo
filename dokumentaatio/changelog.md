@@ -24,3 +24,4 @@
 * Jokaisen sarakkeen asetuksille on oma ikkuna, joka avautuu klikkaamalla sarakkeen päällä olevaa nappia
 * Ikkunassa voidaan valita 16-, 32- tai 64-bittiset liukuluvut
 * Ikkuna on toteutettu siten, että siihen on myöhemmin helppo lisätä eri näkymä kiintoluvuille ja niiden asetuksille
+* Liukulukuja voidaan kertoa ja jakaa kahden potensseilla käyttäen operaattoreita `<<` ja `>>`

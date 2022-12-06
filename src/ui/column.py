@@ -16,18 +16,18 @@ class Column:
         self._table = table
         self._id = column_id
         self._settings_window = None
-        self._type = numpy.float32
+        self._scalar_type = numpy.float32
 
-        self._button = tkinter.Button(root, text=_get_display_name(self._type), \
+        self._button = tkinter.Button(root, text=_get_display_name(self._scalar_type), \
             command=self._on_button_clicked)
 
         self._button.grid(row=0, column=column_id+1, padx=10, pady=5, sticky=tkinter.W)
 
     def get_evaluator(self):
-        return Evaluator(self._type)
+        return Evaluator(self._scalar_type)
 
     def _on_scalar_type_changed(self, new_type):
-        self._type = new_type
+        self._scalar_type = new_type
         self._button.config(text=_get_display_name(new_type))
 
         for row in self._table.get_rows():
@@ -43,8 +43,9 @@ class Column:
         x = self._button.winfo_rootx() + self._button.winfo_width()
         y = self._button.winfo_rooty()
 
-        self._settings_window = SettingsWindow(self._root, \
-            self._on_settings_closed, self._on_scalar_type_changed, self._type, x, y)
+        self._settings_window = SettingsWindow(self._root, x, y, self._scalar_type, \
+            f'Sarakkeen {self._id} asetukset', self._on_settings_closed, \
+            self._on_scalar_type_changed, )
 
     def _on_settings_closed(self, event=None):
         if self._settings_window:

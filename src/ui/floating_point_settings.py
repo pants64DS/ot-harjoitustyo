@@ -2,9 +2,9 @@ import tkinter
 import calculation.floating_point as floating_point
 
 class FloatingPointSettings:
-    def __init__(self, root, curr_type, on_scalar_type_changed):
+    def __init__(self, root, scalar_type, on_scalar_type_changed):
         self._root = root
-        self._precision = tkinter.IntVar(value=floating_point.get_precision(curr_type))
+        self._precision = tkinter.IntVar(value=floating_point.get_precision(scalar_type))
         self._precision.trace('w', self._on_precision_changed)
         self._on_scalar_type_changed = on_scalar_type_changed
 

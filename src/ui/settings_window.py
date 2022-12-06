@@ -4,11 +4,11 @@ from ui.floating_point_settings import FloatingPointSettings
 import numpy
 
 class SettingsWindow:
-    def __init__(self, root, on_closed, on_scalar_type_changed, scalar_type, x, y):
+    def __init__(self, root, pos_x, pos_y, scalar_type, title, on_closed, on_scalar_type_changed):
         self._window = tkinter.Toplevel(root)
 
-        self._window.geometry(f'300x200+{x}+{y}')
-        self._window.title('Sarakkeen asetukset')
+        self._window.geometry(f'300x200+{pos_x}+{pos_y}')
+        self._window.title(title)
         self._window.protocol('WM_DELETE_WINDOW', on_closed)
         self._window.bind('<Escape>', on_closed)
         self._window.columnconfigure((0, 1), weight=1)

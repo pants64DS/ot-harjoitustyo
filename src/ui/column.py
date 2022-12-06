@@ -1,7 +1,14 @@
 import tkinter
 import numpy
-from calculation.evaluator import Evaluator
 from ui.settings_window import SettingsWindow
+from calculation.evaluator import Evaluator
+import calculation.floating_point as floating_point
+
+def _get_display_name(scalar_type):
+    if numpy.issubdtype(scalar_type, numpy.floating):
+        return f'float{floating_point.get_precision(scalar_type)}'
+
+    return ''
 
 class Column:
     def __init__(self, root, table, column_id):
@@ -11,7 +18,9 @@ class Column:
         self._settings_window = None
         self._type = numpy.float32
 
-        self._button = tkinter.Button(root, text='asetukset...', command=self._on_button_clicked)
+        self._button = tkinter.Button(root, text=_get_display_name(self._type), \
+            command=self._on_button_clicked)
+
         self._button.grid(row=0, column=column_id+1, padx=10, pady=5, sticky=tkinter.W)
 
     def get_evaluator(self):
@@ -19,6 +28,7 @@ class Column:
 
     def _on_scalar_type_changed(self, new_type):
         self._type = new_type
+        self._button.config(text=_get_display_name(new_type))
 
         for row in self._table.get_rows():
             res = self.get_evaluator().evaluate_to_string(row.get_expr())

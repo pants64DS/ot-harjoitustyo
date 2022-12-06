@@ -1,34 +1,10 @@
 import tkinter
-import numpy
-
-def _get_float_type(precision):
-    if precision == 16:
-        return numpy.float16
-
-    if precision == 32:
-        return numpy.float32
-
-    if precision == 64:
-        return numpy.float64
-
-    return None
-
-def _get_float_precision(float_type):
-    if float_type is numpy.float16:
-        return 16
-
-    if float_type is numpy.float32:
-        return 32
-
-    if float_type is numpy.float64:
-        return 64
-
-    return None
+import calculation.floating_point as floating_point
 
 class FloatingPointSettings:
     def __init__(self, root, curr_type, on_scalar_type_changed):
         self._root = root
-        self._precision = tkinter.IntVar(value=_get_float_precision(curr_type))
+        self._precision = tkinter.IntVar(value=floating_point.get_precision(curr_type))
         self._precision.trace('w', self._on_precision_changed)
         self._on_scalar_type_changed = on_scalar_type_changed
 
@@ -49,4 +25,4 @@ class FloatingPointSettings:
         _64_bit_button.grid(row=5, column=1, padx=(0, 20), pady=(0, 10), sticky=tkinter.W)
 
     def _on_precision_changed(self, name, index, mode):
-        self._on_scalar_type_changed(_get_float_type(self._precision.get()))
+        self._on_scalar_type_changed(floating_point.get_type(self._precision.get()))

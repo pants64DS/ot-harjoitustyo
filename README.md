@@ -7,6 +7,17 @@ Sovelluksesta tulee laskin, jolla voidaan laskea aritmeettisia lausekkeita tieto
 * [Työaikakirjanpito](dokumentaatio/tuntikirjanpito.md)
 * [Changelog](dokumentaatio/changelog.md)
 
+## Asennus
+Kun Python 3.8 ja Poetry ovat asennettuina, tarvittavat riippuvuudet voidaan asentaa suorittamalla komento:
+```
+poetry install
+```
+
+Tämän jälkeen ohjelma voidaan käynnistää komennolla:
+```
+poetry run invoke start
+```
+
 ## Komentorivikomennot
 
 ### Ohjelman suorittaminen:

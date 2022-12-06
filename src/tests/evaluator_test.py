@@ -73,6 +73,18 @@ class TestEvaluator(unittest.TestCase):
                 expr = f'{x} % {y}'
                 self.assertEqual(self.e.evaluate(expr), x % y)
 
+    def test_left_shift(self):
+        for x in range(-100, 100):
+            for y in range(0, 100):
+                expr = f'{x} << {y}'
+                self.assertEqual(self.e.evaluate(expr), x * (1 << y))
+
+    def test_right_shift(self):
+        for x in range(-100, 100):
+            for y in range(0, 100):
+                expr = f'{x} >> {y}'
+                self.assertEqual(self.e.evaluate(expr), x / (1 << y))
+
     def test_precedence(self):
         for x in range(-10, 10):
             for y in range(-10, 10):

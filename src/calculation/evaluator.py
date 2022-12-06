@@ -10,6 +10,8 @@ _binary_operators = {
     '*': lambda a, b: a * b,
     '/': lambda a, b: a / b,
     '%': lambda a, b: a % b,
+    'L': lambda a, b: a * (1 << int(b)),
+    'R': lambda a, b: a / (1 << int(b)),
 }
 
 # Precedence groups for *binary* operators
@@ -17,6 +19,7 @@ _binary_operators = {
 _precedence_groups = (
     ('*', '/', '%'),
     ('+', '-'),
+    ('L', 'R')
 )
 
 # Adds just enough opening parentheses to the start of the expression
@@ -89,7 +92,7 @@ class Evaluator:
         if not expr:
             return ''
 
-        expr = expr.lower()
+        expr = expr.lower().replace('<<', 'L').replace('>>', 'R')
         expr = _complete_parentheses(expr)
 
         return self._eval_complete(expr)

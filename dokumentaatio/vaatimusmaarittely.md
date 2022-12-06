@@ -22,6 +22,7 @@ Ennen taulukon jokaista riviä on käyttäjän kirjoittama lauseke, ja sen jokai
 * Sarakkeen asetuksissa voitaisiin määritellä tuloksen esitysmuoto, kuten binääri-, desimaali- tai heksadesimaaliluvut. Liukuluvuille voisi olla vaihtoehto näyttää luvun esitys tietokoneen muistissa
   * Jos tuloksen saisi näiden lisäksi *little-endian* -muotoon, niin se olisi kätevä copy-pasteta heksaeditoriin
 * Laskin voisi tukea myös bittioperaatioita, jakojäännöstä, neliöjuurta, itseisarvoa ja trigonometrisiä funktioita
+    * :heavy_check_mark: Näistä on toteutettu bittisiirtoa vastaava operaatio (operaattorit `<<` ja `>>`) liukuluvuille
 * Laskimessa voisi olla mahdollisuus tallentaa nykyinen sessio (eli kaikki rivit ja sarakkeet) tiedostoon tai tietokantaan
 * Käyttöliittymästä tulisi joustavampi, jos rivien ja sarakkeiden paikkoja voitaisiin vaihtaa hiirellä raahaaten
 * Olisi kätevää, jos tuloksen voisi kopioida leikepöydälle pelkästään klikkaamalla solua

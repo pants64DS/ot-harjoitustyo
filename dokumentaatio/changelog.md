@@ -18,3 +18,9 @@
 * Jaettu käyttöliittymän taulukon koodi `Table`- `Row`- ja `Column`- luokkiin
 * Sarakkeita voi lisätä painamalla Ctrl+N
 * Jokaiselle sarakkeelle voi asettaa lukujärjestälmäksi 32- tai 64-bittiset liukuluvut
+
+## Viikko 5
+
+* Jokaisen sarakkeen asetuksille on oma ikkuna, joka avautuu klikkaamalla sarakkeen päällä olevaa nappia
+* Ikkunassa voidaan valita 16-, 32- tai 64-bittiset liukuluvut
+* Ikkuna on toteutettu siten, että siihen on myöhemmin helppo lisätä eri näkymä kiintoluvuille ja niiden asetuksille

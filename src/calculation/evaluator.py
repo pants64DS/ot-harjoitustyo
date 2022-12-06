@@ -46,7 +46,7 @@ def _find_binary_op(expr, precedence_group):
 
 class Evaluator:
     def __init__(self, literal_parser):
-        self.literal_parser = literal_parser
+        self._literal_parser = literal_parser
 
     # Evaluates an expression with no top-level binary operators
     def _eval_unary_expr(self, expr):
@@ -58,7 +58,7 @@ class Evaluator:
 
             return _unary_operators[expr[0]](operand)
 
-        return self.literal_parser(expr)
+        return self._literal_parser(expr)
 
     # "pos" is assumed to be the index of the rightmost top-level
     # binary operator in the expression with the given precedence.

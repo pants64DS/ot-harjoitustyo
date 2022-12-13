@@ -1,9 +1,10 @@
 # Ohjelmoijan laskin
-Sovelluksesta tulee laskin, jolla voidaan laskea aritmeettisia lausekkeita tietokoneiden käyttämillä lukujärjestelmillä, kuten liukuluvuilla. Nykyinen versio tukee 16-, 32- ja 64-bittisten liukulukujen yhteen-, vähennys-, kerto- ja jakolaskua, jakojäännöstä, negaatiota, "bittisiirtoja" vasemmalle ja oikealle sekä sulkeita, joilla voidaan muuttaa edellä mainittujen operaatioiden laskujärjestystä.
+Sovellus on laskin, jolla voidaan laskea aritmeettisia lausekkeita kahdella eri tietokoneiden käyttämällä lukujärjestelmällä, liukuluvuilla ja kiintoluvuilla. Nykyinen versio tukee erikokoisten liuku- ja kiintolukujen yhteen-, vähennys-, kerto- ja jakolaskua, jakojäännöstä, negaatiota, sekä sulkeita, joilla voidaan muuttaa edellä mainittujen operaatioiden laskujärjestystä.
 
-[Viikon 5 release](https://github.com/pants64DS/ot-harjoitustyo/releases/tag/viikko5)
+[Viikon 6 release](https://github.com/pants64DS/ot-harjoitustyo/releases/tag/viikko6)
 
 ## Dokumentaatio
+* [Käyttöohje](dokumentaatio/kayttoohje.md)
 * [Vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
 * [Arkkitehtuurikuvaus](dokumentaatio/arkkitehtuuri.md)
 * [Työaikakirjanpito](dokumentaatio/tuntikirjanpito.md)

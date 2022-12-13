@@ -19,6 +19,7 @@ Ennen taulukon jokaista riviä on käyttäjän kirjoittama lauseke, ja sen jokai
 
 * Liukulukujen lisäksi laskin voisi tukea [kiintolukuja](https://en.wikipedia.org/wiki/Fixed-point_arithmetic), joille käyttäjä voisi vapaasti valita kokonais- ja murto-osien koot bitteinä. Tällöin kokonaisluvut saataisiin käyttöön asettamalla murto-osan kooksi nolla bittiä. Kokonaisosan bittien määrä voisi olla myös rajoittamaton.
     * Kiintoluvuille voitaisiin määritellä sarakkeen asetuksissa *pyöristysmoodi*, esimerkiksi "aina alaspäin", "aina ylöspäin", tai "aina kohti nollaa"
+    * :heavy_check_mark: Tällä hetkellä laskin tukee kiintolukuja, joiden kokonaisosan bittien määrä on rajoittamaton. Käyttäjä pystyy valitsemaan murto-osan bittien määrän väliltä 0-65536
 * Sarakkeen asetuksissa voitaisiin määritellä tuloksen esitysmuoto, kuten binääri-, desimaali- tai heksadesimaaliluvut. Liukuluvuille voisi olla vaihtoehto näyttää luvun esitys tietokoneen muistissa
   * Jos tuloksen saisi näiden lisäksi *little-endian* -muotoon, niin se olisi kätevä copy-pasteta heksaeditoriin
 * Laskin voisi tukea myös bittioperaatioita, jakojäännöstä, neliöjuurta, itseisarvoa ja trigonometrisiä funktioita

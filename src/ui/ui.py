@@ -3,11 +3,13 @@ import numpy
 from ui.table import Table
 
 class UI:
+    """A class that manages the UI of the whole app."""
     def __init__(self, root):
         self._root = root
         self._table = Table(root)
 
     def start(self):
+        """Stars the UI."""
         self._root.bind("<Control-n>", self._on_ctrl_n)
 
         numpy.seterr('ignore') # inf and nan are valid results

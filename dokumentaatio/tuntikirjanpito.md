@@ -10,4 +10,6 @@
 | 22.11  | 3    | graafisen käyttöliittymän toteutus |
 | 29.11  | 8    | käyttöliittymän sarakkeet ja niiden asetukset |
 | 6.12   | 10   | erillinen ikkuna sarakkeen asetuksille |
-| yht.   | 48   | |
+| 12.12  | 4    | kiintolukuaritmetiikan toteutus |
+| 13.12  | 10   | kiintolukuaritmetiikan toteutus ja lisääminen käyttöliittymään |
+| yht.   | 62   | |

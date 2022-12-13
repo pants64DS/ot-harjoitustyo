@@ -4,7 +4,14 @@ from ui.table import Table
 
 class UI:
     """A class that manages the UI of the whole app."""
+
     def __init__(self, root):
+        """The constructor of the UI class.
+
+        Args:
+            root: A window to contain the UI
+        """
+
         self._root = root
         self._table = Table(root)
 

@@ -1,7 +1,18 @@
 import tkinter
 
 class Row:
+    """A class that manages a row in a Table."""
+
     def __init__(self, root, table, row_id):
+        """The constructor of Row.
+
+        Args:
+            root: A window to contain the row
+            table: A Table to contain the row
+            row_id: The number of rows above this one
+        """
+
+        self._root = root
         self._table = table
 
         self._expr = tkinter.StringVar()
@@ -12,7 +23,7 @@ class Row:
         self._id = row_id
 
         for column_id in range(table.get_width()):
-            self.add_label(root, column_id)
+            self.add_label(column_id)
 
         self.set_id(row_id)
 
@@ -31,19 +42,44 @@ class Row:
         self._expr_field.bind('<Control-Home>', self._on_ctrl_home)
         self._expr_field.bind('<Control-End>',  self._on_ctrl_end)
 
-    def add_label(self, root, column_id):
-        new_label = tkinter.Label(master=root, font=('Consolas', 15))
+    def add_label(self, column_id):
+        """Adds a label to display the result of this row for a new column.
+
+        Args:
+            column_id: The number of columns before the new column.
+        """
+
+        new_label = tkinter.Label(master=self._root, font=('Consolas', 15))
         new_label.grid(row=self._id+1, column=column_id+1, padx=10, pady=5, sticky=tkinter.W)
 
         self._result_labels.append(new_label)
 
     def get_expr(self):
+        """Returns the expression in the input field of this row.
+
+        Returns:
+            The expression in the input field of this row.
+        """
+
         return self._expr.get()
 
     def set_result_at(self, column_id, res):
+        """Sets the text representing a result in one of the cells of this row.
+
+        Args:
+            column_id: The number of columns before the cell to change.
+            res: A string containing the new result.
+        """
+
         self._result_labels[column_id]['text'] = res
 
     def set_id(self, new_id):
+        """Sets a new row ID to this row.
+
+        Args:
+            new_id: The new row ID of this row.
+        """
+
         self._id = new_id
         self._expr_field.grid(row=new_id+1)
 
@@ -51,9 +87,11 @@ class Row:
             label.grid(row=new_id+1)
 
     def focus(self):
+        """Gives focus to the expression field of this row"""
+
         self._expr_field.focus()
 
-    def move_focus(self, offset, relative=True, wrap_around=False):
+    def _move_focus(self, offset, relative=True, wrap_around=False):
         new_id = offset
 
         if relative:
@@ -82,23 +120,23 @@ class Row:
         self._expr_field.select_range(0, 0)
 
     def _on_tab(self, event):
-        self.move_focus(1, wrap_around=True)
+        self._move_focus(1, wrap_around=True)
 
         return 'break'
 
     def _on_shift_tab(self, event):
-        self.move_focus(-1, wrap_around=True)
+        self._move_focus(-1, wrap_around=True)
 
         return 'break'
 
     def _on_up(self, event):
-        self.move_focus(-1)
+        self._move_focus(-1)
 
     def _on_down(self, event):
-        self.move_focus(1)
+        self._move_focus(1)
 
     def _on_ctrl_home(self, event):
-        self.move_focus(0, relative=False)
+        self._move_focus(0, relative=False)
 
     def _on_ctrl_end(self, event):
-        self.move_focus(-1, relative=False, wrap_around=True)
+        self._move_focus(-1, relative=False, wrap_around=True)

@@ -4,7 +4,17 @@ from ui.column_settings import ColumnSettings
 from calculation.evaluator import Evaluator
 
 class Column:
+    """A class that manages a column in a Table."""
+
     def __init__(self, root, table, column_id):
+        """The constructor of Column
+
+        Args:
+            root: A window to contain the column
+            table: A Table to contain the column
+            column_id: The number of columns before this one
+        """
+
         self._root = root
         self._table = table
         self._id = column_id
@@ -17,6 +27,12 @@ class Column:
         self._button.grid(row=0, column=column_id+1, padx=10, pady=5, sticky=tkinter.W)
 
     def get_evaluator(self):
+        """Returns an Evaluator initialized with the column's settings
+
+        Returns:
+            An Evaluator initialized with the column's settings
+        """
+
         return Evaluator(self._settings.get_parser())
 
     def _on_settings_changed(self):

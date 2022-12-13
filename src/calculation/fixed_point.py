@@ -38,12 +38,12 @@ class FixedPoint:
         self._num_frac_bits = num_frac_bits
 
     def __add__(self, other):
-        assert(self._num_frac_bits == other._num_frac_bits)
+        assert self._num_frac_bits == other._num_frac_bits
 
         return FixedPoint(self._raw + other._raw, self._num_frac_bits)
 
     def __sub__(self, other):
-        assert(self._num_frac_bits == other._num_frac_bits)
+        assert self._num_frac_bits == other._num_frac_bits
 
         return FixedPoint(self._raw - other._raw, self._num_frac_bits)
 
@@ -58,7 +58,7 @@ class FixedPoint:
         return FixedPoint(raw_result, self._num_frac_bits)
 
     def __mod__(self, other):
-        assert(self._num_frac_bits == other._num_frac_bits)
+        assert self._num_frac_bits == other._num_frac_bits
 
         return FixedPoint(self._raw % other._raw, self._num_frac_bits)
 
@@ -74,10 +74,11 @@ class FixedPoint:
 
         sign = (self._raw < 0) * '-'
         raw = -self._raw if sign else self._raw
-
         raw *= radix ** num_frac_digits
-        raw += (1 << (self._num_frac_bits - 1))
-        raw >>= self._num_frac_bits
+
+        if self._num_frac_bits > 0:
+            raw += (1 << (self._num_frac_bits - 1))
+            raw >>= self._num_frac_bits
 
         digits = []
         while raw or len(digits) < num_frac_digits:
@@ -85,7 +86,6 @@ class FixedPoint:
             raw //= radix
 
         digits = _add_fractional_point(digits, num_frac_digits)
-
         return sign + _add_prefix(''.join(digits[::-1]), radix)
 
     def __str__(self):

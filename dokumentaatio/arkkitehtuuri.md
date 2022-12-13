@@ -1,20 +1,27 @@
 # Arkkitehtuurikuvaus
 
 ## Luokkarakenne
-
+Sovelluksen toiminnallisuus ja käyttöliittymä on jaettu luokkiin seuraavasti:
 ```mermaid
 classDiagram
 UI "1" -- "1" Table
 Table "1" -- "*" Row
 Table "1" -- "*" Column
 Column "1" -- "0..1" SettingsWindow
-SettingsWindow "1" -- "0..1" FloatingPointSettings
+Column "1" -- "1" ColumnSettings
+SettingsWindow "1" -- "0..1" FloatingPointSettingsView
+SettingsWindow "1" -- "0..1" FixedPointSettingsView
 
 Row ..> Column
 Column ..> Row
 Column ..> Evaluator
 Row ..> Evaluator
 Table ..> Evaluator
+SettingsWindow ..> ColumnSettings
+FloatingPointSettingsView ..> ColumnSettings
+FixedPointSettingsView ..> ColumnSettings
+FixedPointSettingsView ..> FixedPoint
+FixedPointSettingsView ..> Parser
 ```
 
 ## Toiminnallisuus
@@ -29,6 +36,10 @@ sequenceDiagram
     Row ->> Row: get_expr()
     Row ->> Column: get_evaluator()
     activate Column
+    Column ->> ColumnSettings: get_parser()
+    activate ColumnSettings
+    ColumnSettings -->> Column: numpy.float32
+    deactivate ColumnSettings
     Column ->> Evaluator: Evaluator(numpy.float32)
     Column -->> Row: Evaluator
     deactivate Column

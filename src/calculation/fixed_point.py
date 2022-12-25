@@ -1,13 +1,26 @@
 
 def _add_prefix(literal, radix):
-    if radix == 10:
-        return literal
     if radix == 2:
         return '0b' + literal
+
     if radix == 16:
         return '0x' + literal
 
-    return None
+    return literal
+
+def _digits_to_string(digits):
+    if '.' not in digits and '0.' not in digits:
+        return ''.join(digits[::-1])
+
+    num_digits_to_trim = 0
+
+    while num_digits_to_trim < len(digits) and digits[num_digits_to_trim] == '0':
+        num_digits_to_trim += 1
+
+    if num_digits_to_trim < len(digits) and digits[num_digits_to_trim] in ('.', '0.'):
+        num_digits_to_trim += 1
+
+    return ''.join(digits[num_digits_to_trim:][::-1])
 
 def _parse_prefix(literal):
     if literal.startswith('0x'):
@@ -16,12 +29,6 @@ def _parse_prefix(literal):
         return literal[2:], 2
 
     return literal, 10
-
-def _zero_to_string(num_frac_digits):
-    if num_frac_digits:
-        return '0.' + '0' * num_frac_digits
-
-    return '0'
 
 def _add_fractional_point(digits, num_frac_digits):
     if num_frac_digits > 0:
@@ -68,30 +75,33 @@ class FixedPoint:
     def __pos__(self):
         return FixedPoint(+self._raw, self._num_frac_bits)
 
-    def to_string(self, radix, num_frac_digits):
+    def to_string(self, radix, max_frac_digits):
         if self._raw == 0:
-            return _zero_to_string(num_frac_digits)
+            return _add_prefix('0', radix)
 
         sign = (self._raw < 0) * '-'
         raw = -self._raw if sign else self._raw
-        raw *= radix ** num_frac_digits
+        raw *= radix ** max_frac_digits
 
         if self._num_frac_bits > 0:
             raw += (1 << (self._num_frac_bits - 1))
             raw >>= self._num_frac_bits
 
         digits = []
-        while raw or len(digits) < num_frac_digits:
+        while raw or len(digits) < max_frac_digits:
             digits.append('0123456789abcdef'[raw % radix])
             raw //= radix
 
-        digits = _add_fractional_point(digits, num_frac_digits)
-        return sign + _add_prefix(''.join(digits[::-1]), radix)
+        digits = _add_fractional_point(digits, max_frac_digits)
+        return sign + _add_prefix(_digits_to_string(digits), radix)
 
     def __str__(self):
         return self.to_string(10, 12)
 
-class Parser:
+    def get_raw(self):
+        return self._raw
+
+class FixedPointParser:
     def __init__(self, num_frac_bits):
         self._num_frac_bits = num_frac_bits
 

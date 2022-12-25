@@ -21,7 +21,7 @@ SettingsWindow ..> ColumnSettings
 FloatingPointSettingsView ..> ColumnSettings
 FixedPointSettingsView ..> ColumnSettings
 FixedPointSettingsView ..> FixedPoint
-FixedPointSettingsView ..> Parser
+FixedPointSettingsView ..> FixedPointParser
 ```
 
 ## Toiminnallisuus

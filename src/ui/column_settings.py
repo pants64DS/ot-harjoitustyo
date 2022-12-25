@@ -5,7 +5,7 @@ class ColumnSettings:
     def __init__(self, on_changed):
         self._on_changed = on_changed
         self._float_parser = numpy.float32
-        self._fixed_parser = fixed_point.Parser(12)
+        self._fixed_parser = fixed_point.FixedPointParser(12)
         self._uses_floats = True
 
     def uses_floats(self):
@@ -34,7 +34,7 @@ class ColumnSettings:
 
     def enable_fixed_mode(self, num_frac_bits=None):
         if num_frac_bits != None:
-            self._fixed_parser = fixed_point.Parser(num_frac_bits)
+            self._fixed_parser = fixed_point.FixedPointParser(num_frac_bits)
 
         self._uses_floats = False
         self._on_changed()

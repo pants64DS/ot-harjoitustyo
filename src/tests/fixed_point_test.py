@@ -57,6 +57,22 @@ class TestFixedPoint(unittest.TestCase):
 
                     self.assertEqual((x % y).get_raw(), a % b)
 
+    def test_left_shift(self):
+        for q in range(32):
+            for a in range(-32, 33):
+                for b in range(0, 33):
+                    x = FixedPoint(a, q)
+
+                    self.assertEqual((x * (1 << b)).get_raw(), a << b)
+
+    def test_right_shift(self):
+        for q in range(32):
+            for a in range(-32, 33):
+                for b in range(0, 33):
+                    x = FixedPoint(a, q)
+
+                    self.assertEqual((x / (1 << b)).get_raw(), a >> b)
+
     def test_negation(self):
         for q in range(32):
             for a in range(-32, 33):
@@ -108,6 +124,12 @@ class TestFixedPoint(unittest.TestCase):
                 s = f'.{"0" * (q - 1)}1'
                 for i in range(4):
                     self.assertEqual(FixedPoint((n << q << i) + (1 << i), q + i).to_string(2, q), bin(n) + s)
+
+    def test_to_int(self):
+        for q in range(32):
+            for a in range(256):
+                x = FixedPoint(a, q)
+                self.assertEqual(int(x), a >> q)
 
     def test_default_string(self):
         for q in range(32):

@@ -1,7 +1,7 @@
 # Ohjelmoijan laskin
-Sovellus on laskin, jolla voidaan laskea aritmeettisia lausekkeita kahdella eri tietokoneiden käyttämällä lukujärjestelmällä, liukuluvuilla ja kiintoluvuilla. Nykyinen versio tukee erikokoisten liuku- ja kiintolukujen yhteen-, vähennys-, kerto- ja jakolaskua, jakojäännöstä, negaatiota, sekä sulkeita, joilla voidaan muuttaa edellä mainittujen operaatioiden laskujärjestystä.
+Sovellus on laskin, jolla voidaan laskea aritmeettisia lausekkeita kahdella eri tietokoneiden käyttämällä lukujärjestelmällä, liukuluvuilla ja kiintoluvuilla. Nykyinen versio tukee erikokoisten liuku- ja kiintolukujen yhteen-, vähennys-, kerto- ja jakolaskua, jakojäännöstä, bittisiirtoja, negaatiota, sekä sulkeita, joilla voidaan muuttaa edellä mainittujen operaatioiden laskujärjestystä.
 
-[Viikon 6 release](https://github.com/pants64DS/ot-harjoitustyo/releases/tag/viikko6)
+[Lopullinen palautuksen release](https://github.com/pants64DS/ot-harjoitustyo/releases/tag/viikko7)
 
 ## Dokumentaatio
 * [Käyttöohje](dokumentaatio/kayttoohje.md)

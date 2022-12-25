@@ -73,15 +73,18 @@ class Evaluator:
             creating a scalar value from a string representation
     """
 
-    def __init__(self, literal_parser):
+    def __init__(self, literal_parser, stringifier=str):
         """Evaluator's constructor.
 
         Args:
             literal_parser: A class, function or callable object that allows
-            creating a scalar value from a string representation
+                creating a scalar value from a string representation
+            stringifier: A class, function or callable object  to convert
+                the result of the expression to string
         """
 
         self._literal_parser = literal_parser
+        self._stringifier = stringifier
 
     def _eval_unary_expr(self, expr):
         """Evaluates an expression with no top-level binary operators.
@@ -175,7 +178,7 @@ class Evaluator:
         """
 
         try:
-            res = str(self.evaluate(expr))
+            res = self._stringifier(self.evaluate(expr))
         except ZeroDivisionError:
             return 'undef'
         except:

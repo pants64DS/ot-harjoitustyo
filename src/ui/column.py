@@ -33,7 +33,7 @@ class Column:
             An Evaluator initialized with the column's settings
         """
 
-        return Evaluator(self._settings.get_parser())
+        return Evaluator(self._settings.get_parser(), self._settings.res_to_string)
 
     def _on_settings_changed(self):
         self._button.config(text=str(self._settings))

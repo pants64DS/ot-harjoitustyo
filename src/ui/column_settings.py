@@ -19,10 +19,13 @@ class ColumnSettings:
         return self._fixed_parser
 
     def res_to_string(self, res):
+        if isinstance(res, str):
+            return res
+
         if self._uses_floats:
             return str(res)
-        else:
-            return res.to_string(10, self._num_display_digits)
+
+        return res.to_string(10, self._num_display_digits)
 
     def enable_float_mode(self, precision=None):
         if precision == 16: self._float_parser = numpy.float16

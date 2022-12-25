@@ -55,12 +55,18 @@ class FixedPoint:
         return FixedPoint(self._raw - other._raw, self._num_frac_bits)
 
     def __mul__(self, other):
-        raw_result = self._raw * other._raw >> other._num_frac_bits
+        if isinstance(other, int):
+            raw_result = self._raw * other
+        else:
+            raw_result = self._raw * other._raw >> other._num_frac_bits
 
         return FixedPoint(raw_result, self._num_frac_bits)
 
     def __truediv__(self, other):
-        raw_result = (self._raw << other._num_frac_bits) // other._raw
+        if isinstance(other, int):
+            raw_result = self._raw // other
+        else:
+            raw_result = (self._raw << other._num_frac_bits) // other._raw
 
         return FixedPoint(raw_result, self._num_frac_bits)
 
@@ -74,6 +80,9 @@ class FixedPoint:
 
     def __pos__(self):
         return FixedPoint(+self._raw, self._num_frac_bits)
+
+    def __int__(self):
+        return self._raw >> self._num_frac_bits
 
     def to_string(self, radix, max_frac_digits):
         if self._raw == 0:

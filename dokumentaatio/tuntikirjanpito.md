@@ -12,4 +12,6 @@
 | 6.12   | 10   | erillinen ikkuna sarakkeen asetuksille |
 | 12.12  | 4    | kiintolukuaritmetiikan toteutus |
 | 13.12  | 10   | kiintolukuaritmetiikan toteutus ja lisääminen käyttöliittymään |
-| yht.   | 62   | |
+| 24.12  | 6    | testit kiintolukuaritmetiikalle
+| 25.12  | 9    | Vierityspalkit, tuloksen desimaalien määrän valinta ja dokumentaatio
+| yht.   | 77   | |

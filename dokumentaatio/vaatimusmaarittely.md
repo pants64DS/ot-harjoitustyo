@@ -1,29 +1,48 @@
 # Vaatimusmäärittely
 
 ## Sovelluksen tarkoitus
-Sovelluksesta tulee laskin, jonka tarkoitus on auttaa ohjelmoijaa:
-* Kokeilemaan, miten eri lausekkeet käyttäytyvät kun niitä lasketaan eri lukujärjestelmissä, joita tietokoneet käyttävät
-* Selvittämään, tapahtuuko annetun lausekkeen laskennassa ylitsevuotoja tai pyöristysvirheitä
+Sovellus on laskin, jonka tarkoitus on auttaa ohjelmoijaa:
+* Kokeilemaan, miten eri lausekkeet käyttäytyvät kun niitä lasketaan eri esitysmuodoilla
+* Selvittämään, tapahtuuko annetun lausekkeen laskennassa pyöristysvirheitä
 * Löytämään riittävän tarkka lukujärjestelmä halutun tarkkuuden saavuttamiseksi
 
-## Käyttöliittymä ja ydintoiminnallisuudet
-### :heavy_check_mark: Kaikki ydintoiminnallisuudet on toteutettu sarakkeiden poistoa lukuun ottamatta
+## Käyttöliittymä
 
-Käyttäjän pitää siis pystyä määrittelemään eri lausekkeita, joita hän haluaa laskea, sekä eri lukujärjestelmiä, joilla laskenta tapahtuu. Sovelluksen käyttöliittymässä nämä vastaavat eräänlaisen taulukon rivejä ja sarakkeita, joita käyttäjä voi lisätä ja poistaa mielensä mukaan.
+Käyttäjä pystyy kirjoittamaan eri lausekkeita, joita hän haluaa laskea, sekä valitsemaan eri esitysmuotoja, joilla laskenta tapahtuu. Sovelluksen käyttöliittymässä nämä vastaavat eräänlaisen taulukon rivejä ja sarakkeita. Jokaisen rivin alussa on tekstikenttä, johon käyttäjä voi kirjoittaa lausekkeen. Jokaisen sarakkeen yläpuolella on nappi, jota painamalla avautuu ikkuna, josta voidaan muokata sarakkeen asetuksia. Sovelluksen käynnistyttyä sen pääikkunassa on yksi rivi ja yksi sarake. Käyttäjä voi lisätä valitun rivin alle uuden rivin painamalla Enteriä. Hän voi myös lisätä taulukkoon uusia sarakkeita painamalla Ctrl+N. Jos kaikki rivit tai sarakkeet eivät mahdu ikkunaan, käyttäjä pystyy selaamaan niitä ikkunan ala- ja oikeassa laidassa olevien vierityspalkkien avulla.
 
-Ennen taulukon jokaista riviä on käyttäjän kirjoittama lauseke, ja sen jokainen solu näyttää kyseisen lausekkeen tuloksen tietyillä asetuksilla, jotka käyttäjä voi määritellä itse jokaiselle sarakkeelle erikseen. Sarakkeen asetuksiin kuuluu ainakin sen käyttämä lukujärjestelmä, mikä on perusversiossa joko 32- tai 64-bittiset liukuluvut. Perusversiossa laskin tukee ainakin yhteen-, vähennys-, kerto- sekä jakolaskua, joiden järjestystä voidaan muuttaa sulkeiden avulla.
+## Esitysmuodot
+Sarakkeen asetusikkunassa käyttäjä voi valita joko [kiintoluvut](https://en.wikipedia.org/wiki/Fixed-point_arithmetic) tai 16-, 32- tai 64-bittiset liukuluvut. Kiintolukujen murto-osan bittien määrä voidaan valita vapaasti väliltä 0-65536 ja kokonaisosan koko on rajoittamaton. Kiintoluvuilla voidaan myös valita, kuinka monen desimaalin tarkkuudella tulos näytetään.
 
+## Lausekkeet ja operaatiot
+Laskin tukee seuraavia operaatioita:
+   * Yhteenlasku binäärisellä operaattorilla `+`
+   * Vähennyslasku binäärisellä operaattorilla `-`
+   * Kertolasku binäärisellä operaattorilla `*`
+   * Jakolasku binäärisellä operaattorilla `/`
+   * Bittisiirto vasemmalle binäärisellä operaattorilla `<<`
+   * Bittisiirto oikealle binäärisellä operaattorilla `>>`
+   * Negaatio (eli vastaluku) unaarisella operaattorilla `-`
+   * Unaarinen operaattori `+`, joka palauttaa luvun muuttumattomana
 
+Liukuluvuilla operaattorit `<<` ja `>>` vastaavat kertomista ja jakamista kahden potensseilla, ei luvun esitysmuodon bittien siirtämistä. Kiintoluvuilla operaattori `>>` säilyttää etumerkin.
+
+Lausekkeessa operaattorit noudattavat seuraavaa laskujärejstystä:
+   1. Unaariset operaattorit `+` ja `-`
+   2. Binääriset operaattorit `*`, `/` ja `%`
+   3. Binääriset operaattorit `+` ja `-`
+   4. Binääriset operaattorit `<<` ja `>>`
+
+Tätä järjestystä voidaan kuitenkin muuttaa sulkeiden avulla. Jokainen sulkeilla rajattu alilauseke lasketaan kuin se olisi oma lausekkeensa.
 
 ## Jatkokehitysideoita
 
-* Liukulukujen lisäksi laskin voisi tukea [kiintolukuja](https://en.wikipedia.org/wiki/Fixed-point_arithmetic), joille käyttäjä voisi vapaasti valita kokonais- ja murto-osien koot bitteinä. Tällöin kokonaisluvut saataisiin käyttöön asettamalla murto-osan kooksi nolla bittiä. Kokonaisosan bittien määrä voisi olla myös rajoittamaton.
-    * Kiintoluvuille voitaisiin määritellä sarakkeen asetuksissa *pyöristysmoodi*, esimerkiksi "aina alaspäin", "aina ylöspäin", tai "aina kohti nollaa"
-    * :heavy_check_mark: Tällä hetkellä laskin tukee kiintolukuja, joiden kokonaisosan bittien määrä on rajoittamaton. Käyttäjä pystyy valitsemaan murto-osan bittien määrän väliltä 0-65536
-* Sarakkeen asetuksissa voitaisiin määritellä tuloksen esitysmuoto, kuten binääri-, desimaali- tai heksadesimaaliluvut. Liukuluvuille voisi olla vaihtoehto näyttää luvun esitys tietokoneen muistissa
-  * Jos tuloksen saisi näiden lisäksi *little-endian* -muotoon, niin se olisi kätevä copy-pasteta heksaeditoriin
-* Laskin voisi tukea myös bittioperaatioita, jakojäännöstä, neliöjuurta, itseisarvoa ja trigonometrisiä funktioita
-    * :heavy_check_mark: Näistä on toteutettu bittisiirtoa vastaava operaatio (operaattorit `<<` ja `>>`) liukuluvuille
-* Laskimessa voisi olla mahdollisuus tallentaa nykyinen sessio (eli kaikki rivit ja sarakkeet) tiedostoon tai tietokantaan
-* Käyttöliittymästä tulisi joustavampi, jos rivien ja sarakkeiden paikkoja voitaisiin vaihtaa hiirellä raahaaten
-* Olisi kätevää, jos tuloksen voisi kopioida leikepöydälle pelkästään klikkaamalla solua
+* Kiintoluvuilla kokonaisosan bittien määrää voisi pystyä rajoittamaan. Tällöin laskimella voitaisiin simuloita kiintolukujen ylivuotoa.
+* Kiintoluvuille voitaisiin määritellä sarakkeen asetuksissa *pyöristysmoodi*, esimerkiksi "aina alaspäin", "aina ylöspäin", tai "aina kohti nollaa"
+* Sarakkeen asetuksissa voitaisiin määritellä tuloksen esitysmuoto, kuten binääri-, desimaali- tai heksadesimaaliluvut. Kiintoluvuille tämä toiminnallisuus on oikeastaan jo toteutettu, mutta puuttuu vielä käyttöliittymästä.
+* Näytettävien murto-osan numeroiden määrän voisi pystyä valitsemaan myös liukuluvuille.
+* Lausekkeen tuloksesta voitaisiin pystyä näyttämään myös sen sisäinen esitysmuoto muistissa, esimerkiksi *little-endian* -muodossa.
+* Laskin voisi tukea myös neliöjuurta, itseisarvoa, trigonometrisiä funktioita, sekä binäärisiä "and"-, "or"-, "xor"- ja "not"-operaatioita.
+* Laskimessa voisi olla mahdollisuus tallentaa nykyinen sessio (eli kaikki rivit ja sarakkeet) tiedostoon.
+* Käyttöliittymästä tulisi joustavampi, jos rivien ja sarakkeiden paikkoja voitaisiin vaihtaa hiirellä raahaten.
+* Olisi kätevää, jos tuloksen voisi kopioida leikepöydälle klikkaamalla solua
+* Olisi myös kätevää, jos lausekkeen tulos voitaisiin laskea liuku- ja kiintolukujen lisäksi myös mielivaltaisella tarkkuudella. Tällöin käyttäjä ei tarvitsisi toista laskinta tähän tarkoitukseen.

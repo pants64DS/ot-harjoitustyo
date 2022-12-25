@@ -30,3 +30,8 @@
 
 * Sovellus tukee liukulukujen lisäksi kiintolukuja, joiden murto-osan bittien määrän käyttäjä pystyy valitsemaan.
 * `Evaluator`-, `UI`-, `Table`-, `Row`- ja `Column` -luokilla on docstring-dokumentaatio.
+
+## Viikko 7
+* Sovelluksen pääikkunassa on vierityspalkit, joiden avulla rivejä ja sarakkeita voidaan selata
+* Myös kiintoluvut tukevat operaattoreita `<<` ja `>>`
+* Kiintoluvuille voidaan valita, kuinka monta desimaalia tuloksessa näytetään
